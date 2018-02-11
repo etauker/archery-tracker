@@ -1,0 +1,22 @@
+{
+  "name": "com.etauker.archery-tracker",
+  "version": "1.0.0",
+  "description": "Project for tracking archery scores over time",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/etauker/archery-tracker.git"
+  },
+  "keywords": [
+    "archery"
+  ],
+  "author": "etauker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/etauker/archery-tracker/issues"
+  },
+  "homepage": "https://github.com/etauker/archery-tracker#readme"
+}
