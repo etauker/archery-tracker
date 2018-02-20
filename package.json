@@ -18,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/etauker/archery-tracker/issues"
   },
-  "homepage": "https://github.com/etauker/archery-tracker#readme"
+  "homepage": "https://github.com/etauker/archery-tracker#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "papaparse": "^4.3.7",
+    "sort-array": "^2.0.0"
+  }
 }
