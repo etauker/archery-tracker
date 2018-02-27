@@ -1,5 +1,7 @@
 var Papa = require("../node_modules/papaparse/papaparse.js");
+const api = require('./server/api');
 var fs = require('fs');
+const path = require('path');
 var express = require('express');
 var app = express();
 const sortBy = require('sort-array');
@@ -13,9 +15,41 @@ var http = require('http');
 (function() {
 
     var ctx = {};
+    
+    // Point static path to dist
+    app.use(express.static(path.join(__dirname, 'dist')));
 
+    // Set our api routes
+    app.use('/api', api);
+    
     // create an http server to handle requests and response
     app.get('/', function(req, res) {
+        
+        // Catch all other routes and return the index file
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'dist/index.html'));
+    });
+        
+    /**
+     * Get port from environment and store in Express.
+     */
+    // const port = process.env.PORT || '3000';
+    // app.set('port', port);
+        
+        
+    /**
+    * Create HTTP server.
+    */
+    // const server = http.createServer(app);
+
+    /**
+    * Listen on provided port, on all network interfaces.
+    */
+    // server.listen(port, () => console.log(`API running on localhost:${port}`));
+            
+            
+        
+        
     // http.createServer(function (req, res) {
 
         // Add the head content
@@ -409,23 +443,23 @@ var http = require('http');
         
     }
 
-    function getMembers() {
-        var members = [];
-        
-        return new Promise (function(resolve, reject) {
-            
-            fs.readFile("./members.csv", 'utf8', function(err, contents) {
-                var json = Papa.parse(contents);
-                json.data.forEach(function(mbr) {
-                    members.push({
-                        name: mbr[0], 
-                        level: mbr[1]
-                    })
-                });
-                resolve(members);
-            });
-        });
-    }
+    // function getMembers() {
+    //     var members = [];
+    // 
+    //     return new Promise (function(resolve, reject) {
+    // 
+    //         fs.readFile("./members.csv", 'utf8', function(err, contents) {
+    //             var json = Papa.parse(contents);
+    //             json.data.forEach(function(mbr) {
+    //                 members.push({
+    //                     name: mbr[0], 
+    //                     level: mbr[1]
+    //                 })
+    //             });
+    //             resolve(members);
+    //         });
+    //     });
+    // }
     
     function getFiles(path) {
         var files = [];
