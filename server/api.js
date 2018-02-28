@@ -9,6 +9,12 @@ const router = express.Router();
 var ctx = {};
 var sourcePath = "./source";
 
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
+
 /* GET api listing. */
 router.get('/', (req, res) => {
     res.send('api works');
@@ -232,6 +238,7 @@ function readScoresFile(file, member) {
             obj.info.level = member.level;                  
             obj.info.location = eventInfo.location;                  
             obj.info.date = eventInfo.date;  
+            obj.info.type = eventInfo.type;  
             obj.info.timestamp = getTimestamp(eventInfo.date);
             obj.scores = json; 
             resolve(obj);
