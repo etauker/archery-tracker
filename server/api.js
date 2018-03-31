@@ -19,7 +19,7 @@ var sourcePath = "./source";
 router.get('/', (req, res) => {
     res.send('api works');
 });
-
+    
 router.get('/members', (req, res) => {
     var members = getMembers();
     members.then(function(memberArray) {
